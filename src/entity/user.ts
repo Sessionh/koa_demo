@@ -3,7 +3,7 @@
  * @Github: 
  * @Date: 2019-05-31 18:04:58
  * @LastEditors: huyh
- * @LastEditTime: 2019-06-14 17:03:01
+ * @LastEditTime: 2019-06-18 16:30:06
  * @description: user表 实体类
  */
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, RelationId } from 'typeorm';

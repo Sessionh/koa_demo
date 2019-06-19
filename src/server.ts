@@ -13,6 +13,8 @@ import { logger } from './lib/logging';
 import { config, koa } from './lib/config';
 import { router } from './routes';
 
+// const { logger } = require('./lib/logging')
+
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: '.env' });
@@ -59,6 +61,7 @@ createConnection({
     app.use(router.routes()).use(router.allowedMethods());
 
     app.listen(config.port);
+    
 
     console.log(`Server running on port ${config.port}`);
 
