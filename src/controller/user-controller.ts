@@ -3,7 +3,7 @@
  * @Github: 
  * @Date: 2019-05-31 18:04:58
  * @LastEditors: huyh
- * @LastEditTime: 2019-06-25 15:22:48
+ * @LastEditTime: 2019-06-25 19:48:34
  * @description: user表 controller
  */
 import { BaseContext } from 'koa';
@@ -16,7 +16,7 @@ import { User } from '../entity/user';
 export default class UserController {
     
     /**
-     * @description: 查询 user表 数据
+     * @description: 查询 user表 分页查询数据
      * @param {type} 
      * @return: 
      */
@@ -45,7 +45,6 @@ export default class UserController {
                 .leftJoinAndSelect("user.photos", "photo")
                 .skip(num)
                 .take(pageSize)
-                
                 .getMany();
        
         ctx.status = 200;
@@ -62,6 +61,18 @@ export default class UserController {
     
         ctx.body = result1
        
+
+    }
+
+    public static async deleteUserId(ctx: BaseContext) {
+        let result = await getConnection()
+            .createQueryBuilder()
+            .delete()
+            .from(User)
+            .where("id = :id", { id: 10 })
+            .execute();
+
+        ctx.body = result
 
     }
 
