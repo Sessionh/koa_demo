@@ -18,7 +18,7 @@ export interface KConfig {
 }
 
 const config: IConfig = {
-    port: +process.env.PORT || 3000,
+    port: +process.env.PORT || 3006,
     debugLogging: process.env.NODE_ENV == 'development',
     dbsslconn: process.env.NODE_ENV != 'development',
     jwtSecret: process.env.JWT_SECRET || 'your-secret-whatever',
